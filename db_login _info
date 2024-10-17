@@ -1,0 +1,1 @@
+create user 'serene_user'@'localhost' identified by 'password_serene_user';
