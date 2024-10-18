@@ -23,4 +23,19 @@ const register = (req, res) => {
     });
 };
 
+const login =(req,res) =>{
+    const {email,password} = req.body;
+    User.findByEmail(email, (error,users) =>{
+        if(error || users.length === 0 ) return res.status(400).json({error:'User not found'});
+        const user=users[0];
+
+        bcrypt.compare(password, user.password, (err, isMatch)=> {
+            if(!isMatch) return res.status(401).json({error:'Invalid credentials'});
+            const token = jwt.sign({id: user.id, email:user.email},'secret',{expiresIn:'1h'});
+            res.status(200).json({token});
+        });
+    });
+};
+
+module.exports ={register, login};
 

@@ -7,8 +7,11 @@ const User = {
 
     },
     findByEmail: (email, callback) => {
-        const sql = `SELECt * FROM users WHERE email = ?`;
-        db.query(sql,[email],callback);
+        const sql = `SELECT * FROM users WHERE email = ?`;
+        db.query(sql,[email],(error, results));
+
+        callback(error,results);
+        
     }
 };
 
