@@ -31,7 +31,7 @@ const login =(req,res) =>{
 
         bcrypt.compare(password, user.password, (err, isMatch)=> {
             if(!isMatch) return res.status(401).json({error:'Invalid credentials'});
-            const token = jwt.sign({id: user.id, email:user.email},'secret',{expiresIn:'1h'});
+            const token = jwt.sign({id: user.id, email:user.email},process.env.JWT_SECRET,{expiresIn:'1h'});
             res.status(200).json({token});
         });
     });
