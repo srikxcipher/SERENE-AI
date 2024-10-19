@@ -1,14 +1,15 @@
 const express = require('express');
-const connectDB = require('./config/database');
+const connection = require('./config/database');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const app=express();
-const userRoutes = require('./routes/userRoutes');
 
 app.use(cors());
-connectDB();
+connection.connect();
 
 app.use(express.json());
+console.log("1 step");
+app.use('/api/users',require('./routes/userRoutes'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

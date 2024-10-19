@@ -1,21 +1,21 @@
 const User = require('../models/userModel');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const register = (req, res) => {
     const { username, email, password } = req.body;
+    console.log("5 step");
     //checking if the user exists
     User.findByEmail(email, (error, users) => {
         if (error) return res.status(500).json({ error: 'Error checking for the user' });
         if (users.length > 0) {
             return res.status(400).json({ error: 'User already exists' });
         }
-
+        console.log("6 step");
         bcrypt.hash(password, 10, (err, hash) => {
-            if (err)
-                return res.status(500).json({ error: 'Error hashing password' });
+            if (err) return res.status(500).json({ error: 'Error hashing password' });
             const newUser = { username, email, password: hash };
-            User.create(newUser, (erroe, result) => {
+            User.create(newUser, (error, result) => {
                 if (error) return res.status(500).json({ error });
                 res.status(201).json({ message: 'User registered successfully' });
             });
