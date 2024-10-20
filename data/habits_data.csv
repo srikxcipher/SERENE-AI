@@ -1,0 +1,21 @@
+habit_name,category,frequency,time_needed,difficulty
+Morning Run,fitness,daily,30,medium
+Meditation,wellness,daily,15,easy
+Read a Book,personal_growth,weekly,60,hard
+Yoga,wellness,weekly,45,medium
+Cook Healthy Meal,wellness,daily,60,medium
+Journal,wellness,daily,10,easy
+Learn New Skill,personal_growth,weekly,120,hard
+Sleep Early,wellness,daily,480,medium
+Plan Next Day,productivity,daily,15,easy
+Workout,fitness,daily,60,hard
+Stretching,wellness,daily,10,easy
+Study,personal_growth,daily,120,hard
+Clean Room,wellness,weekly,30,medium
+Drink Water,wellness,daily,5,easy
+Write Blog,personal_growth,weekly,90,hard
+Organize Workspace,productivity,weekly,30,medium
+New Habit 1,fitness,daily,20,easy
+New Habit 2,wellness,weekly,25,medium
+New Habit 3,personal_growth,daily,15,hard
+New Habit 4,productivity,daily,45,medium

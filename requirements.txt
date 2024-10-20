@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+tensorflow
+transformers
+rasa
+flask
+nltk
+pytest
+flask-cors
+tf-keras
+torch
+playsound
+spacy
