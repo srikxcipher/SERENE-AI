@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import axios from 'axios';
 
 const Login: React.FC<{ navigation: any }> = ({ navigation }) => {
@@ -8,20 +8,16 @@ const Login: React.FC<{ navigation: any }> = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://your-backend-url/api/users/login', {
+      const response = await axios.post('http://139.84.136.2:5000/api/users/login', {
         email,
         password,
       });
-      alert('Login successful!');
+      Alert.alert('Login successful!'); // Use Alert here
       navigation.navigate('Home');
     } catch (error) {
-      alert('Login failed. Please check your credentials.');
+      Alert.alert('Login failed', 'Please check your credentials.'); // Use Alert here
     }
   };
-
-  function alert(arg0: string): void {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <View style={styles.container}>
@@ -52,7 +48,7 @@ const Login: React.FC<{ navigation: any }> = ({ navigation }) => {
       />
 
       {/* Forgot Password */}
-      <TouchableOpacity onPress={() => alert('Reset Password')}>
+      <TouchableOpacity onPress={() => Alert.alert('Reset Password')}>
         <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
       </TouchableOpacity>
 
@@ -140,7 +136,3 @@ const styles = StyleSheet.create({
 });
 
 export default Login;
-function alert(arg0: string) {
-  throw new Error('Function not implemented.');
-}
-

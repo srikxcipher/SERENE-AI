@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import axios from 'axios';
 
 const Register: React.FC<{ navigation: any }> = ({ navigation }) => {
-  const [name, setName] = useState<string>('');
+  const [username, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const handleRegister = async () => {
     try {
-      await axios.post('http://your-backend-url/api/users/register', {
-        name,
+      await axios.post('http://139.84.136.2:5000/api/users/register', {
+        username,
         email,
         password,
       });
-      alert('Registration successful! Please log in.');
+      Alert.alert('Registration successful!', 'Please log in.'); // Use Alert here
       navigation.navigate('Login'); // Redirect to login page
     } catch (error) {
-      alert('Registration failed. Please try again.');
+      Alert.alert('Registration failed', 'Please try again.'); // Use Alert here
     }
   };
 
   return (
     <View style={styles.container}>
       {/* Logo Section */}
-     
+      {/* Add logo here if needed */}
 
       {/* Title */}
       <Text style={styles.title}>Create Your Account</Text>
@@ -35,7 +35,7 @@ const Register: React.FC<{ navigation: any }> = ({ navigation }) => {
         style={styles.input}
         placeholder="Full Name"
         placeholderTextColor="#888"
-        value={name}
+        value={username}
         onChangeText={setName}
       />
       <TextInput
@@ -79,11 +79,6 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  logo: {
-    width: 100,
-    height: 100,
-    marginBottom: 40,
   },
   title: {
     fontSize: 28,
@@ -137,7 +132,3 @@ const styles = StyleSheet.create({
 });
 
 export default Register;
-function alert(arg0: string) {
-  throw new Error('Function not implemented.');
-}
-
