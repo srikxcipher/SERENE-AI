@@ -7,8 +7,8 @@ import { NavigationProp } from '../navigation/navigationTypes'; // Adjust the pa
 const Introduction2: React.FC = () => {
   const navigation = useNavigation<NavigationProp>(); // Use the typed navigation
 
-  const handleSkip = () => {
-    navigation.navigate("Register"); // Navigate to Register screen
+  const handlePrevious = () => {
+    navigation.navigate("Splash"); // Navigate back to SplashScreen
   };
 
   const handleNext = () => {
@@ -25,9 +25,9 @@ const Introduction2: React.FC = () => {
         Potential
       </Text>
       
-      {/* Skip Button */}
-      <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
-        <Text style={styles.skipText}>Skip</Text>
+      {/* Previous Button */}
+      <TouchableOpacity style={styles.prevButton} onPress={handlePrevious}>
+        <Text style={styles.prevText}>Previous</Text>
       </TouchableOpacity>
 
       {/* Next Button */}
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     letterSpacing: -1.2,
     lineHeight: 40,
   },
-  skipButton: {
+  prevButton: {
     position: "absolute",
     bottom: 20,
     left: 20,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
   },
-  skipText: {
+  prevText: {
     color: "#000", // Change text color as needed
   },
   nextButton: {
