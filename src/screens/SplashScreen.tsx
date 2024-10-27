@@ -1,30 +1,26 @@
 import React, { useEffect, useState, useRef } from "react";
-import { View, StyleSheet, Text, TouchableOpacity, Animated } from "react-native";
-import LinearGradient from 'react-native-linear-gradient';
+import { View, StyleSheet, Text, TouchableOpacity, Animated, ImageBackground } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import { NavigationProp } from '../navigation/navigationTypes'; // Adjust the path accordingly
+import { NavigationProp } from '../navigation/navigationTypes';
 
 const SplashScreen: React.FC = () => {
-  const navigation = useNavigation<NavigationProp>(); // Use the typed navigation
+  const navigation = useNavigation<NavigationProp>();
   const [quote, setQuote] = useState<string>("");
-  const [fadeAnim] = useState(new Animated.Value(1)); // Initial opacity
+  const fadeAnim = useRef(new Animated.Value(1)).current;
   const quotes = useRef<string[]>([
     "The only way to do great work is to love what you do. – Steve Jobs",
     "Life is what happens when you're busy making other plans. – John Lennon",
     "Get busy living or get busy dying. – Stephen King",
     "You have within you right now, everything you need to deal with whatever the world can throw at you. – Brian Tracy",
     "Believe you can and you're halfway there. – Theodore Roosevelt",
-  ]); // Replace with your own quotes or fetch them from an API
-  const quoteIndex = useRef(0); // Index for the current quote
+  ]);
+  const quoteIndex = useRef(0);
 
   useEffect(() => {
-    // Set the initial quote
     setQuote(quotes.current[quoteIndex.current]);
-
     const interval = setInterval(() => {
       fadeOutAndChangeQuote();
-    }, 20000); // Change quote every 20 seconds
-
+    }, 20000);
     return () => clearInterval(interval);
   }, []);
 
@@ -34,11 +30,10 @@ const SplashScreen: React.FC = () => {
       duration: 2000,
       useNativeDriver: true,
     }).start(() => {
-      // Change quote and fade in
-      quoteIndex.current = (quoteIndex.current + 1) % quotes.current.length; // Update index
+      quoteIndex.current = (quoteIndex.current + 1) % quotes.current.length;
       setQuote(quotes.current[quoteIndex.current]);
-      fadeAnim.setValue(1); // Reset opacity to 1
-      fadeIn(); // Start fade in
+      fadeAnim.setValue(1);
+      fadeIn();
     });
   };
 
@@ -51,74 +46,84 @@ const SplashScreen: React.FC = () => {
   };
 
   const handleSkip = () => {
-    navigation.navigate("Register"); // Navigate to Register screen
+    navigation.navigate("Register");
   };
 
   const handleNext = () => {
-    navigation.navigate("Introduction2"); // Navigate to Introduction 2 screen
+    navigation.navigate("Introduction2");
   };
 
   return (
-    <LinearGradient 
-      colors={['#8E2DE2', '#4A00E0']}
-      style={styles.splashContainer}
+    <ImageBackground 
+      source={require('../assets/pexels-njeromin-14760650.jpg')} 
+      style={styles.container}
     >
-      <Text style={styles.welcomeText}>
-        WELCOME TO{'\n'}
-        SERENE AI APP
-      </Text>
+      <View style={styles.contentContainer}>
+        <Text style={styles.welcomeText}>
+          WELCOME TO{'\n'}
+          SERENE AI
+        </Text>
 
-      <View style={styles.spacer} />
+        <View style={styles.spacer} />
 
-      {/* Quote Box with Fade Animation */}
-      <Animated.View style={[styles.quoteBox, { opacity: fadeAnim }]}>
-        {quote ? (
-          <Text style={styles.quoteText}>{quote}</Text>
-        ) : (
-          <Text style={styles.loadingText}>Loading quote...</Text>
-        )}
-      </Animated.View>
+        <View style={styles.quoteBox}>
+          <Animated.View style={{ opacity: fadeAnim }}>
+            {quote ? (
+              <Text style={styles.quoteText}>{quote}</Text>
+            ) : (
+              <Text style={styles.loadingText}>Loading quote...</Text>
+            )}
+          </Animated.View>
+        </View>
 
-      {/* Skip Button */}
-      <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
-        <Text style={styles.skipText}>Skip</Text>
-      </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
+            <Text style={styles.skipText}>Skip</Text>
+          </TouchableOpacity>
 
-      {/* Next Button */}
-      <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
-        <Text style={styles.nextText}>Next</Text>
-      </TouchableOpacity>
-    </LinearGradient>
+          <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
+            <Text style={styles.nextText}>Next</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  splashContainer: {
+  container: {
     flex: 1,
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: "space-between",
     alignItems: "center",
-    justifyContent: "center",
     padding: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
   },
   welcomeText: {
-    fontFamily: "Klasik, sans-serif",
+    fontFamily: "Pacifico", // Change this to your chosen font
     fontSize: 40,
     color: "white",
-    fontWeight: "400",
+    fontWeight: "bold",
     textAlign: "center",
     textTransform: "uppercase",
     letterSpacing: -1.2,
-    lineHeight: 40,
+    lineHeight: 50,
+    textShadowColor: "rgba(0, 0, 0, 0.7)", // Dark shadow for outline effect
+    textShadowOffset: { width: 2, height: 2 }, // Adjust for outline effect
+    textShadowRadius: 3, // Blur radius for the shadow
   },
   spacer: {
-    height: 20, // Adjust space as needed
+    height: 180,
   },
   quoteBox: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)', // Semi-transparent white
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
     borderRadius: 10,
-    padding: 20,
-    margin: 20,
-    width: '90%', // Responsive width
-    maxWidth: 400, // Max width for larger screens
+    padding: 5,
+    marginBottom: 0,
+    width: '90%',
+    maxWidth: 400,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -126,15 +131,16 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.3,
     shadowRadius: 5,
-    elevation: 5, // For Android shadow
+    elevation: 5,
   },
   quoteText: {
     fontSize: 20,
-    color: "white",
+    color: "#333",
     textAlign: "center",
     paddingHorizontal: 10,
     fontStyle: "italic",
     fontFamily: "Cursive, sans-serif",
+    // No outline effect on quote text
   },
   loadingText: {
     marginVertical: 20,
@@ -142,27 +148,37 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    width: '100%',
+  },
   skipButton: {
-    position: "absolute",
-    bottom: 20,
-    left: 20,
-    backgroundColor: "rgba(255, 255, 255, 0.7)",
-    padding: 10,
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     borderRadius: 5,
+    elevation: 22,
+    flex: 1,
+    marginRight: 100,
   },
   skipText: {
     color: "#000",
+    fontWeight: "bold",
   },
   nextButton: {
-    position: "absolute",
-    bottom: 20,
-    right: 20,
-    backgroundColor: "rgba(255, 255, 255, 0.7)",
-    padding: 10,
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     borderRadius: 5,
+    elevation: 22,
+    flex: 1,
+    marginLeft: 100,
   },
   nextText: {
     color: "#000",
+    fontWeight: "bold",
   },
 });
 
