@@ -46,7 +46,7 @@ const SplashScreen: React.FC = () => {
   };
 
   const handleSkip = () => {
-    navigation.navigate("Register");
+    navigation.navigate("Home");
   };
 
   const handleNext = () => {

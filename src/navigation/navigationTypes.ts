@@ -10,6 +10,7 @@ export type RootStackParamList = {
   Home: undefined;
   HabitScreen: undefined;
   MusicAndStoryTherapy: undefined;
+  Chat: undefined;
 };
 
 // Define the navigation prop type

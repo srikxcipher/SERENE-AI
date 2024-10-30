@@ -8,6 +8,7 @@ import HabitScreen from './src/screens/HabitScreen';
 import MusicAndStoryTherapy from './src/screens/MusicAndStoryTherapy';
 import SplashScreen from './src/screens/SplashScreen';
 import Introduction2 from './src/screens/Introduction2'; // Import your new screen
+import ChatScreen from './src/screens/ChatScreen';
 
 const Stack = createStackNavigator();
 
@@ -32,7 +33,7 @@ const App: React.FC = () => {
         />
         <Stack.Screen 
           name="Introduction2" 
-          options={{ headerShown: false }} // Add this line if you want to hide the header
+          options={{ headerShown: false }} 
           component={Introduction2} 
         />
         <Stack.Screen 
@@ -54,6 +55,11 @@ const App: React.FC = () => {
         <Stack.Screen 
           name="MusicAndStoryTherapy" 
           component={MusicAndStoryTherapy} 
+        />
+        <Stack.Screen 
+          name="Chat" 
+          component={ChatScreen} 
+          options={{ title: 'Chatbot' }} // You can customize the title
         />
       </Stack.Navigator>
     </NavigationContainer>

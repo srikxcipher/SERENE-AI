@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation
+import { NavigationProp } from '../navigation/navigationTypes'; // Adjust the path to your navigationTypes file
 
 const HomeScreen: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
+  const navigation = useNavigation<NavigationProp>(); 
 
   useEffect(() => {
     const loadAppData = async () => {
@@ -25,7 +28,11 @@ const HomeScreen: React.FC = () => {
       <Text style={styles.title}>Welcome to SERENE AI!</Text>
       <View style={styles.featuresContainer}>
         {featureData.map((feature, index) => (
-          <TouchableOpacity key={index} style={[styles.featureBox, { backgroundColor: feature.color }]}>
+          <TouchableOpacity 
+            key={index} 
+            style={[styles.featureBox, { backgroundColor: feature.color }]}
+            onPress={feature.name === 'Chatbot' ? () => navigation.navigate('Chat') : undefined} // Use navigation to go to Chat
+          >
             <Text style={styles.featureText}>{feature.name}</Text>
           </TouchableOpacity>
         ))}
@@ -34,7 +41,7 @@ const HomeScreen: React.FC = () => {
   );
 };
 
-// Feature data with distinct colors
+// Feature data with distinct colors, including a Chatbot feature
 const featureData = [
   { name: 'Questionnaire', color: '#FF6F61' },
   { name: 'Music and Story Therapy', color: '#6A5ACD' },
@@ -45,7 +52,7 @@ const featureData = [
   { name: 'Progress Tracker', color: '#FFD700' },
   { name: 'Community', color: '#FF4500' },
   { name: 'Gamification Elements', color: '#32CD32' },
-  { name: 'Chatbot', color: '#1E90FF' },
+  { name: 'Chatbot', color: '#1E90FF' }, // Chatbot feature
 ];
 
 const styles = StyleSheet.create({
