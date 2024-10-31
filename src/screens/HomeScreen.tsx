@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
-import { NavigationProp } from '../navigation/navigationTypes'; // Adjust the path to your navigationTypes file
+import { useNavigation } from '@react-navigation/native'; 
+import { NavigationProp } from '../navigation/navigationTypes';
 
 const HomeScreen: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -9,7 +9,7 @@ const HomeScreen: React.FC = () => {
 
   useEffect(() => {
     const loadAppData = async () => {
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate loading time
+      await new Promise(resolve => setTimeout(resolve, 2000)); 
       setLoading(false);
     };
     loadAppData();
@@ -24,35 +24,41 @@ const HomeScreen: React.FC = () => {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Welcome to SERENE AI!</Text>
-      <View style={styles.featuresContainer}>
-        {featureData.map((feature, index) => (
-          <TouchableOpacity 
-            key={index} 
-            style={[styles.featureBox, { backgroundColor: feature.color }]}
-            onPress={feature.name === 'Chatbot' ? () => navigation.navigate('Chat') : undefined} // Use navigation to go to Chat
-          >
-            <Text style={styles.featureText}>{feature.name}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Text style={styles.title}>Welcome!</Text>
+        <View style={styles.featuresContainer}>
+          {featureData.map((feature, index) => (
+            <TouchableOpacity 
+              key={index} 
+              style={styles.featureButton}
+              onPress={
+                feature.name === 'Chatbot' ? () => navigation.navigate('Chat') :
+                feature.name === 'Habit Recommendation' ? () => navigation.navigate('HabitScreen') :
+                undefined
+              }
+            >
+              <Text style={styles.featureText}>{feature.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
+      <Text style={styles.trademark}>SereneAI © 2024</Text>
+    </View>
   );
 };
 
-// Feature data with distinct colors, including a Chatbot feature
 const featureData = [
-  { name: 'Questionnaire', color: '#FF6F61' },
-  { name: 'Music and Story Therapy', color: '#6A5ACD' },
-  { name: 'Habit\nRecommenda-tion', color: '#FF8C00' },
-  { name: 'Social Media Tracker', color: '#20B2AA' },
-  { name: 'Resources', color: '#DC143C' },
-  { name: 'AI-Writing Therapist', color: '#8A2BE2' },
-  { name: 'Progress Tracker', color: '#FFD700' },
-  { name: 'Community', color: '#FF4500' },
-  { name: 'Gamification Elements', color: '#32CD32' },
-  { name: 'Chatbot', color: '#1E90FF' }, // Chatbot feature
+  { name: 'Questionnaire' },
+  { name: 'Music and Story Therapy' },
+  { name: 'Habit Recommendation' },
+  { name: 'Social Media Tracker' },
+  { name: 'Resources' },
+  { name: 'AI-Writing Therapist' },
+  { name: 'Progress Tracker' },
+  { name: 'Community' },
+  { name: 'Gamification Elements' },
+  { name: 'Chatbot' },
 ];
 
 const styles = StyleSheet.create({
@@ -64,43 +70,45 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    backgroundColor: '#ffffff',
+  },
+  scrollContainer: {
+    flexGrow: 1,
     padding: 20,
-    backgroundColor: '#f5f5f5',
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    color: '#333',
+    color: '#6200ee',
   },
   featuresContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
   },
-  featureBox: {
+  featureButton: {
     borderRadius: 10,
-    padding: 20,
-    margin: 10,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    marginVertical: 10,
+    backgroundColor: '#6200ee',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '40%', // Adjusted width to fit 2 boxes side by side
-    height: 100, // Set a fixed height for uniformity
-    elevation: 3, // Shadow effect for Android
-    shadowColor: '#000', // Shadow effect for iOS
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    width: '48%',
   },
   featureText: {
     color: '#fff',
     textAlign: 'center',
-    fontWeight: 'bold', // Make text bold
-    fontSize: 16, // Adjusted font size for better readability
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  trademark: {
+    textAlign: 'center',
+    fontSize: 14,
+    color: '#888',
+    padding: 10,
   },
 });
 

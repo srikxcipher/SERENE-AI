@@ -61,6 +61,10 @@ const App: React.FC = () => {
           component={ChatScreen} 
           options={{ title: 'Chatbot' }} // You can customize the title
         />
+        <Stack.Screen 
+        name="Habit" // Match this name with HomeScreen navigation
+        component={HabitScreen} 
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
