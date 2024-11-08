@@ -33,7 +33,7 @@ This repository is organized into several key sections, each corresponding to a 
 
 Here are some screenshots of the app in action. Get a glimpse of the beautiful, user-friendly interface of **SERENE-AI**!
 
-![Home Screen](./docs/screenshots/home-screen.png)
+![Home Screen](.docs/home.jpg)
 *Welcome to the SERENE-AI home screen---your starting point for all wellness recommendations!*
 
 ![Habit Recommendation](./docs/screenshots/habit-recommendation.png)
