@@ -42,7 +42,7 @@ This app provides users with a seamless, AI-powered experience on Android, allow
 
 To get **SERENE-AI** running on your local machine or Android device, follow these steps:
 
-### 1. **Clone the Repository**
+###  **Clone the Repository**
 
 Clone the project from GitHub:
 
