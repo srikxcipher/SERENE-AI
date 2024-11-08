@@ -34,6 +34,7 @@ const HomeScreen: React.FC = () => {
               style={styles.featureButton}
               onPress={
                 feature.name === 'Chatbot' ? () => navigation.navigate('Chat') :
+                feature.name === 'Music and Story Therapy' ? () => navigation.navigate('MusicAndStoryTherapy') : // Navigate to MusicAndStoryTherapy
                 feature.name === 'Habit Recommendation' ? () => navigation.navigate('HabitScreen') :
                 undefined
               }
@@ -50,7 +51,7 @@ const HomeScreen: React.FC = () => {
 
 const featureData = [
   { name: 'Questionnaire' },
-  { name: 'Music and Story Therapy' },
+  { name: 'Music and Story Therapy' }, // This feature will navigate to MusicAndStoryTherapy
   { name: 'Habit Recommendation' },
   { name: 'Social Media Tracker' },
   { name: 'Resources' },

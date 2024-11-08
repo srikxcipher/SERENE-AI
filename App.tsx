@@ -5,7 +5,7 @@ import Home from './src/screens/HomeScreen';
 import Register from './src/screens/Register';
 import Login from './src/screens/Login';
 import HabitScreen from './src/screens/HabitScreen';
-import MusicAndStoryTherapy from './src/screens/MusicAndStoryTherapy';
+import MusicTherapyScreen from './src/screens/MusicAndStoryTherapy';
 import SplashScreen from './src/screens/SplashScreen';
 import Introduction2 from './src/screens/Introduction2'; // Import your new screen
 import ChatScreen from './src/screens/ChatScreen';
@@ -54,7 +54,7 @@ const App: React.FC = () => {
         />
         <Stack.Screen 
           name="MusicAndStoryTherapy" 
-          component={MusicAndStoryTherapy} 
+          component={MusicTherapyScreen} 
         />
         <Stack.Screen 
           name="Chat" 
