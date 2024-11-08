@@ -74,41 +74,6 @@ By leveraging **Vultr**, we ensure that **SERENE-AI** provides users with a smoo
 
 ---
 
-## ⚙️ Setup Instructions
-
-To run **SERENE-AI** on your local machine or Android device, follow these steps:
-
-### 1. **Clone the Repository**
-
-```bash
-git clone https://github.com/yourusername/SERENE-AI.git
-cd SERENE-AI `
-```
-### 2\. **Install Dependencies**
-
-Install the required dependencies using **Yarn**:
-
-```bash
-
-`yarn install`
-```
-### 3\. **Set up Android Environment**
-
-If you don't have Android Studio installed, follow the React Native Environment Setup Guide to get started.
-
-### 4\. **Run the Application**
-
-To run the app on an Android device or emulator:
-
-```bash
-
-`yarn android`
-```
-If you are running on iOS, use:
-
-```bash
-`yarn ios`
-```
 * * * * *
 
 🤝 Contributing
