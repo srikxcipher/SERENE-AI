@@ -1,4 +1,4 @@
-`# SERENE-AI: Your Personalized Wellness Assistant 🤖💪
+# SERENE-AI: Your Personalized Wellness Assistant 🤖💪
 
 Welcome to **SERENE-AI**, a powerful AI-driven wellness assistant designed to improve your mental and physical health. By combining cutting-edge machine learning models with user-friendly mobile interfaces, **SERENE-AI** offers personalized recommendations, mood-based music, therapeutic writing prompts, and a sentiment-aware chatbot. The app seamlessly integrates with a backend powered by **Flask**, **Vultr**, and various AI models to provide real-time wellness assistance.
 
