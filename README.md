@@ -31,19 +31,15 @@ This repository is organized into several key sections, each corresponding to a 
 
 ## 🖼️ Prototype Screenshots
 
-Here are some screenshots of the app in action. Get a glimpse of the beautiful, user-friendly interface of **SERENE-AI**!
-
-![Home Screen](.docs/home.jpg)
-*Welcome to the SERENE-AI home screen---your starting point for all wellness recommendations!*
-
-![Habit Recommendation](./docs/screenshots/habit-recommendation.png)
-*Personalized habit recommendations based on your input---designed to help you improve your wellness journey.*
-
-![Chatbot](./docs/screenshots/chatbot.png)
-*Our AI-powered chatbot that understands and responds to your emotions.*
-
-![Music Recommendation](./docs/screenshots/music-recommendation.png)
-*Mood-based music suggestions to match your feelings---designed to uplift your mood.*
+<p align="center">
+    <img src="https://github.com/srikxcipher/SERENE-AI/blob/8cfffda967b83a4d92a0e0fd61d01241f3bc6e5f/docs/onboarding.jpg" width="200" style="margin-right: 15px;"/>
+    <img src="https://github.com/srikxcipher/SERENE-AI/blob/8cfffda967b83a4d92a0e0fd61d01241f3bc6e5f/docs/Onboarding2.jpg" width="200" style="margin-right: 15px;"/>
+    <img src="https://github.com/srikxcipher/SERENE-AI/blob/8cfffda967b83a4d92a0e0fd61d01241f3bc6e5f/docs/register.jpg" width="200" style="margin-right: 15px;"/>
+    <img src="https://github.com/srikxcipher/SERENE-AI/blob/8cfffda967b83a4d92a0e0fd61d01241f3bc6e5f/docs/login.jpg" width="200" style="margin-right: 15px;"/>
+    <img src="https://github.com/srikxcipher/SERENE-AI/blob/8cfffda967b83a4d92a0e0fd61d01241f3bc6e5f/docs/home.jpg" width="200" style="margin-right: 15px;"/>
+    <img src="https://github.com/srikxcipher/SERENE-AI/blob/8cfffda967b83a4d92a0e0fd61d01241f3bc6e5f/docs/Habit2.jpg" width="200" style="margin-right: 15px;"/>
+    <img src="https://github.com/srikxcipher/SERENE-AI/blob/8cfffda967b83a4d92a0e0fd61d01241f3bc6e5f/docs/Habit3.jpg" width="200"/>
+</p>
 
 ---
 
@@ -72,12 +68,7 @@ By leveraging **Vultr**, we ensure that **SERENE-AI** provides users with a smoo
 ### Problem 3: **Difficulty in Selecting Music Based on Mood**
    **Solution**: The app integrates a music recommendation engine that uses mood as the primary input. This ensures users always have the perfect soundtrack for any emotional state.
 
----
-
 * * * * *
-
-* * * * *
-
 📝 License
 ----------
 
@@ -89,13 +80,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ----------
 
 If you have any questions, run into issues, or need assistance, feel free to open an issue on GitHub or reach out directly to the maintainers.
-
-* * * * *
-
-🎉 Promote Our App!
--------------------
-
-**SERENE-AI** is designed to improve your overall well-being by giving you personalized, AI-powered insights and recommendations. Whether you're looking to enhance your mental wellness, get better sleep, or simply improve your habits, **SERENE-AI** is here to guide you every step of the way. Download the app today on Android!
 
 * * * * *
 
