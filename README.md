@@ -76,16 +76,6 @@ By leveraging **Vultr**, we ensure that **SERENE-AI** provides users with a smoo
 
 * * * * *
 
-🤝 Contributing
----------------
-
-We welcome contributions to **SERENE-AI**! If you'd like to contribute, here are some ways you can get involved:
-
--   **Bug Fixes**: Help us identify and fix any bugs or issues within the app or backend.
--   **Feature Requests**: Suggest new features or improvements to enhance the app's functionality.
--   **Documentation**: Improve the documentation by adding new sections or clarifying existing content.
--   **UI/UX Improvements**: Help us create a more polished and visually appealing user interface.
-
 * * * * *
 
 📝 License
