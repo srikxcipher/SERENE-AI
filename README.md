@@ -185,14 +185,6 @@ Important Files
 
 -   Collects user data for recommending wellness habits.
 
-### 4\. **screens/MoodMusicScreen.tsx**
-
--   Allows users to select their mood and receive music recommendations.
-
-### 5\. **screens/AIWritingTherapistScreen.tsx**
-
--   Provides writing prompts based on the user's mood.
-
 * * * * *
 
 Styling and UI
@@ -215,13 +207,6 @@ We welcome contributions! If you'd like to improve the app, here are some ways y
 1.  **Bug Fixes**: If you notice any issues with the app, feel free to submit a pull request with a fix.
 2.  **Features**: Add new features such as additional wellness suggestions or integrate other mood-based functionalities.
 3.  **Documentation**: Help improve the documentation by suggesting edits or adding new sections.
-
-* * * * *
-
-License
--------
-
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 * * * * *
 
